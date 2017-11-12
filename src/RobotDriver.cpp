@@ -1,6 +1,7 @@
 #include "Arduino.h"
 #include "RobotDriver.h"
 #include <Servo.h>
+#define SPD(x)   map(x,0,100,0,255)
 Servo head;
 RobotDriver::RobotDriver()
 {
@@ -43,8 +44,8 @@ void RobotDriver::avanzar(int speed1,int speed2,int delay)
 	digitalWrite(_in3,1);
 	digitalWrite(_in4,0);
 	/*velocidad de la rueda depende del valor*/
-	analogWrite(_en1,speed1);
-	analogWrite(_en2,speed2);
+	analogWrite(_en1,SPD(speed1));
+	analogWrite(_en2,SPD(speed2));
 	/*Se espera el tiempo indicado y luego se apagan las ruedas*/
 	delay((int)(1000*delay));
 	digitalWrite(_en1,0);
@@ -74,8 +75,8 @@ void RobotDriver::retroceder(int speed1,int speed2)
 	digitalWrite(_in3,0);
 	digitalWrite(_in4,1);
 	/*velocidad de la rueda depende del valor*/
-	analogWrite(_en1,speed1);
-	analogWrite(_en2,speed2);
+	analogWrite(_en1,SPD(speed1));
+	analogWrite(_en2,SPD(speed2));
 }
 void RobotDriver::retroceder(int speed1, int speed2, int delay)
 {
@@ -85,8 +86,8 @@ void RobotDriver::retroceder(int speed1, int speed2, int delay)
 	digitalWrite(_in3,0);
 	digitalWrite(_in4,1);
 	/*velocidad de la rueda depende del valor*/
-	analogWrite(_en1,speed1);
-	analogWrite(_en2,speed2);
+	analogWrite(_en1,SPD(speed1));
+	analogWrite(_en2,SPD(speed2));
 	/*Se espera el tiempo indicado y luego se apagan las ruedas*/
 	delay((int)(1000*delay));
 	digitalWrite(_en1,0);
@@ -130,8 +131,8 @@ void RobotDriver::doblar_izq(int delay,int speed)
 	digitalWrite(_in3,1);
 	digitalWrite(_in4,0);
 	/*Velocidad de giro*/
-	analogWrite(_en1,speed);
-	analogWrite(_en2,speed);
+	analogWrite(_en1,SPD(speed1));
+	analogWrite(_en2,SPD(speed2));
 	delay((int)(1000*delay));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
@@ -158,8 +159,8 @@ void RobotDriver::doblar_der(int delay, int speed){
 	digitalWrite(_in3,0);
 	digitalWrite(_in4,1);
 	/*Velocidad de giro*/
-	analogWrite(_en1,speed);
-	analogWrite(_en2,speed);
+	analogWrite(_en1,SPD(speed1));
+	analogWrite(_en2,SPD(speed2));
 	delay((int)(1000*delay));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
