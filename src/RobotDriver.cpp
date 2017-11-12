@@ -1,6 +1,7 @@
 #include "Arduino.h"
 #include "RobotDriver.h"
 #include <Servo.h>
+/*mapeo de velocidad, rango 0-100 a 0-255 (para pines analogos)*/
 #define SPD(x)   map(x,0,100,0,255)
 Servo head;
 RobotDriver::RobotDriver()
