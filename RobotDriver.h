@@ -23,16 +23,16 @@ class RobotDriver{
 	public:
 		RobotDriver();
 		void init();
-		void avanzar(float delay);
+		void avanzar(float del);
 		void avanzar(int speed1,int speed2);
-		void avanzar(int speed1,int speed2,float delay);
-		void retroceder(float delay);
+		void avanzar(int speed1,int speed2,float del);
+		void retroceder(float del);
 		void retroceder(int speed1,int speed2);
-		void retroceder(int speed1, int speed2, float delay);
-		void doblar_izq(float delay);	
-		void doblar_izq(float delay,int speed);
-		void doblar_der(float delay);
-		void doblar_der(float delay,int speed);
+		void retroceder(int speed1, int speed2, float del);
+		void doblar_izq(float del);	
+		void doblar_izq(float del,int speed);
+		void doblar_der(float del);
+		void doblar_der(float del,int speed);
 		int linea_negra();
 		void mover_cabeza(int angulo);	
 	private:
