@@ -2,7 +2,7 @@
 #include "RobotDriver.h"
 #include <Servo.h>
 /*mapeo de velocidad, rango 0-100 a 0-255 (para pines analogos)*/
-#define SPD(x)   map(x,0,100,0,255)
+
 Servo head;
 RobotDriver::RobotDriver()
 {
@@ -48,7 +48,7 @@ void RobotDriver::avanzar(int speed1,int speed2,float del)
 	analogWrite(_en1,SPD(speed1));
 	analogWrite(_en2,SPD(speed2));
 	/*Se espera el tiempo indicado y luego se apagan las ruedas*/
-	delay((int)(1000*delay));
+	delay((int)(1000*del));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 
@@ -63,7 +63,7 @@ void RobotDriver::avanzar(float del)
 	/*velocidad de la rueda depende del valor*/
 	digitalWrite(_en1,1);
 	digitalWrite(_en2,1);
-	delay((int)(1000*delay));
+	delay((int)(1000*del));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 
