@@ -1,11 +1,11 @@
 #include <RobotDriver.h> 
 /*for Arduino UNO
-IN1 pin 2
-IN2 pin 4
-IN3 pin7
-IN4 pin6
-EN1 pin 3
-EN2 pin 5*/
+IN1 pin 13
+IN2 pin 12
+IN3 pin 8
+IN4 pin 7
+EN1 pin 11
+EN2 pin 10*/
 /*Se define la clase RobotDriver*/ 
 
 RobotDriver robot;
