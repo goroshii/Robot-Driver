@@ -1,2 +1,2 @@
 # RobotDriver
-Driver for a dual motor H bridge.
+Driver for a dual motor H bridge using arduino.
