@@ -13,6 +13,7 @@ void setup() {
   robot.init();
 }
 void loop() {
+  /*robot.avanzar(delay): la variable delay está en segundos*/
   robot.avanzar(1);
   robot.doblar_izq(1);
   robot.avanzar(1);
