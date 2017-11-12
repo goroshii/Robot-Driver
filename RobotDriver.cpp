@@ -132,8 +132,8 @@ void RobotDriver::doblar_izq(float del,int speed)
 	digitalWrite(_in3,1);
 	digitalWrite(_in4,0);
 	/*Velocidad de giro*/
-	analogWrite(_en1,SPD(speed1));
-	analogWrite(_en2,SPD(speed2));
+	analogWrite(_en1,SPD(speed));
+	analogWrite(_en2,SPD(speed));
 	delay((int)(1000*del));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
@@ -160,8 +160,8 @@ void RobotDriver::doblar_der(float del, int speed){
 	digitalWrite(_in3,0);
 	digitalWrite(_in4,1);
 	/*Velocidad de giro*/
-	analogWrite(_en1,SPD(speed1));
-	analogWrite(_en2,SPD(speed2));
+	analogWrite(_en1,SPD(speed));
+	analogWrite(_en2,SPD(speed));
 	delay((int)(1000*del));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
