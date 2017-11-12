@@ -1,0 +1,21 @@
+#######################################
+# Syntax Coloring Map for RobotDriver library
+####################################### 
+
+#######################################
+# Class (KEYWORD1)
+#######################################
+
+RobotDriver	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################	
+
+init	KEYWORD2
+avanzar	KEYWORD2
+retroceder	KEYWORD2
+doblar_izq	KEYWORD2
+doblar_der	KEYWORD2
+mover_cabeza	KEYWORD2
+linea_negra KEYWORD2
