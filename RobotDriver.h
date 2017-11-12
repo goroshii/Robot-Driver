@@ -33,7 +33,7 @@ class RobotDriver{
 		void doblar_izq(float del,int speed);
 		void doblar_der(float del);
 		void doblar_der(float del,int speed);
-		int linea_negra(int x);
+		int linea_negra();
 		void mover_cabeza(int angulo);	
 	private:
 		int _in1;
