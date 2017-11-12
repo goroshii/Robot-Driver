@@ -165,6 +165,7 @@ void RobotDriver::doblar_der(int delay, int speed){
 	delay((int)(1000*delay));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
+}
 int RobotDriver::linea_negra()
 {
 	int lectura = analogRead(A0);
