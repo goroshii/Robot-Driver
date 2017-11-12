@@ -18,7 +18,7 @@
 #define IN4 6
 #define EN2 5
 #define SER 9
-
+#define SPD(x)   map(x,0,100,0,255)
 class RobotDriver{
 	public:
 		RobotDriver();
