@@ -36,7 +36,7 @@ void RobotDriver::avanzar(int speed1,int speed2)
 	analogWrite(_en1,speed1);
 	analogWrite(_en2,speed2);
 }
-void RobotDriver::avanzar(int speed1,int speed2,float delay)
+void RobotDriver::avanzar(int speed1,int speed2,float del)
 {
 	/*Rueda izquierda hacia delante*/
 	digitalWrite(_in1,1);
@@ -53,7 +53,7 @@ void RobotDriver::avanzar(int speed1,int speed2,float delay)
 	digitalWrite(_en2,0);
 
 }
-void RobotDriver::avanzar(float delay)
+void RobotDriver::avanzar(float del)
 {
 	digitalWrite(_in1,1);
 	digitalWrite(_in2,0);
@@ -79,7 +79,7 @@ void RobotDriver::retroceder(int speed1,int speed2)
 	analogWrite(_en1,SPD(speed1));
 	analogWrite(_en2,SPD(speed2));
 }
-void RobotDriver::retroceder(int speed1, int speed2, float delay)
+void RobotDriver::retroceder(int speed1, int speed2, float del)
 {
 	digitalWrite(_in1,0);
 	digitalWrite(_in2,1);
@@ -90,11 +90,11 @@ void RobotDriver::retroceder(int speed1, int speed2, float delay)
 	analogWrite(_en1,SPD(speed1));
 	analogWrite(_en2,SPD(speed2));
 	/*Se espera el tiempo indicado y luego se apagan las ruedas*/
-	delay((int)(1000*delay));
+	delay((int)(1000*del));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 }
-void RobotDriver::retroceder(float delay)
+void RobotDriver::retroceder(float del)
 {
 	digitalWrite(_in1,0);
 	digitalWrite(_in2,1);
@@ -104,11 +104,11 @@ void RobotDriver::retroceder(float delay)
 	/*velocidad de la rueda depende del valor*/
 	digitalWrite(_en1,1);
 	digitalWrite(_en2,1);
-	delay((int)(1000*delay));
+	delay((int)(1000*del));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);	
 }
-void RobotDriver::doblar_izq(float delay)
+void RobotDriver::doblar_izq(float del)
 {
 	/*Rueda izquierda hacia atras*/
 	digitalWrite(_in1,0);
@@ -119,11 +119,11 @@ void RobotDriver::doblar_izq(float delay)
 	/*Velocidad de giro*/
 	analogWrite(_en1,100);
 	analogWrite(_en2,100);
-	delay((int)(1000*delay));
+	delay((int)(1000*del));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 }
-void RobotDriver::doblar_izq(float delay,int speed)
+void RobotDriver::doblar_izq(float del,int speed)
 {
 /*Rueda izquierda hacia atras*/
 	digitalWrite(_in1,0);
@@ -134,11 +134,11 @@ void RobotDriver::doblar_izq(float delay,int speed)
 	/*Velocidad de giro*/
 	analogWrite(_en1,SPD(speed1));
 	analogWrite(_en2,SPD(speed2));
-	delay((int)(1000*delay));
+	delay((int)(1000*del));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 }
-void RobotDriver::doblar_der(float delay){
+void RobotDriver::doblar_der(float del){
 /*Rueda izquierda hacia delante*/
 	digitalWrite(_in1,1);
 	digitalWrite(_in2,0);
@@ -148,11 +148,11 @@ void RobotDriver::doblar_der(float delay){
 	/*Velocidad de giro*/
 	analogWrite(_en1,100);
 	analogWrite(_en2,100);
-	delay((int)(1000*delay));
+	delay((int)(1000*del));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 }
-void RobotDriver::doblar_der(float delay, int speed){
+void RobotDriver::doblar_der(float del, int speed){
 /*Rueda izquierda hacia delante*/
 	digitalWrite(_in1,1);
 	digitalWrite(_in2,0);
@@ -162,7 +162,7 @@ void RobotDriver::doblar_der(float delay, int speed){
 	/*Velocidad de giro*/
 	analogWrite(_en1,SPD(speed1));
 	analogWrite(_en2,SPD(speed2));
-	delay((int)(1000*delay));
+	delay((int)(1000*del));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 }
