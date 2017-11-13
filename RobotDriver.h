@@ -23,6 +23,7 @@ class RobotDriver{
 	public:
 		RobotDriver();
 		void init();
+		void stop();
 		void avanzar(float del);
 		void avanzar(int speed1,int speed2);
 		void avanzar(int speed1,int speed2,float del);
