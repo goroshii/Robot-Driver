@@ -19,24 +19,17 @@ void setup() {
   ISR: es el nombre de la rutina de interrupcion
   mode: puede ser HIGH, LOW, RISING,o FALLING
   */
-  attachInterrupt(digitalPinToInterrupt(2), borde, HIGH);
+  attachInterrupt(digitalPinToInterrupt(2), borde, RISING);
   
 }
 void loop() {
   robot.avanzar(1);
   robot.doblar_izq(1);
-  robot.avanzar(1);
-  robot.doblar_izq(1);
-  robot.avanzar(1);
+  robot.retroceder(1);
 
 }
 
 void borde(){
-  if(robot.linea_negra()==1){
-    digitalWrite(4,HIGH);
-    robot.retroceder(0.5);
-    robot.avanzar(0,100,0.5);
-  } else {
-    digitalWrite(4,LOW);
-  }
+  robot.retroceder(2);
+  robot.avanzar(0,100,1);
 }
