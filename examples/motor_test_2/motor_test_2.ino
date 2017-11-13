@@ -2,8 +2,8 @@
 /*for Arduino UNO
 IN1 pin 13
 IN2 pin 12
-IN3 pin 8
-IN4 pin 7
+IN3 pin 7
+IN4 pin 8
 EN1 pin 11
 EN2 pin 10*/
 /*Se define la clase RobotDriver*/ 
