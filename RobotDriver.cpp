@@ -24,6 +24,10 @@ void RobotDriver::init(){
 	pinMode(_en2,OUTPUT);
 	head.attach(_ser);
 }
+void RobotDriver::stop(){
+	digitalWrite(_en1,0);
+	digitalWrite(_en2,0);
+}
 void RobotDriver::avanzar(int speed1,int speed2)
 {
 	/*Rueda izquierda hacia delante*/
