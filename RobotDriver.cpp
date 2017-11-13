@@ -31,11 +31,11 @@ void RobotDriver::stop(){
 void RobotDriver::avanzar(int speed1,int speed2)
 {
 	/*Rueda izquierda hacia delante*/
-	digitalWrite(_in1,1);
-	digitalWrite(_in2,0);
+	digitalWrite(_in1,0);
+	digitalWrite(_in2,1);
 	/*Rueda derecha hacia delante*/
-	digitalWrite(_in3,1);
-	digitalWrite(_in4,0);
+	digitalWrite(_in3,0);
+	digitalWrite(_in4,1);
 	/*velocidad de la rueda depende del valor*/
 	analogWrite(_en1,speed1);
 	analogWrite(_en2,speed2);
@@ -43,11 +43,11 @@ void RobotDriver::avanzar(int speed1,int speed2)
 void RobotDriver::avanzar(int speed1,int speed2,float del)
 {
 	/*Rueda izquierda hacia delante*/
-	digitalWrite(_in1,1);
-	digitalWrite(_in2,0);
+	digitalWrite(_in1,0);
+	digitalWrite(_in2,1);
 	/*Rueda derecha hacia delante*/
-	digitalWrite(_in3,1);
-	digitalWrite(_in4,0);
+	digitalWrite(_in3,0);
+	digitalWrite(_in4,1);
 	/*velocidad de la rueda depende del valor*/
 	analogWrite(_en1,SPD(speed1));
 	analogWrite(_en2,SPD(speed2));
@@ -59,11 +59,12 @@ void RobotDriver::avanzar(int speed1,int speed2,float del)
 }
 void RobotDriver::avanzar(float del)
 {
-	digitalWrite(_in1,1);
-	digitalWrite(_in2,0);
+
+	digitalWrite(_in1,0);
+	digitalWrite(_in2,1);
 	/*Rueda derecha hacia delante*/
-	digitalWrite(_in3,1);
-	digitalWrite(_in4,0);
+	digitalWrite(_in3,0);
+	digitalWrite(_in4,1);
 	/*velocidad de la rueda depende del valor*/
 	digitalWrite(_en1,1);
 	digitalWrite(_en2,1);
@@ -74,22 +75,22 @@ void RobotDriver::avanzar(float del)
 }
 void RobotDriver::retroceder(int speed1,int speed2)
 {
-	digitalWrite(_in1,0);
-	digitalWrite(_in2,1);
+	digitalWrite(_in1,1);
+	digitalWrite(_in2,0);
 	/*Rueda derecha hacia atras*/
-	digitalWrite(_in3,0);
-	digitalWrite(_in4,1);
+	digitalWrite(_in3,1);
+	digitalWrite(_in4,0);
 	/*velocidad de la rueda depende del valor*/
 	analogWrite(_en1,SPD(speed1));
 	analogWrite(_en2,SPD(speed2));
 }
 void RobotDriver::retroceder(int speed1, int speed2, float del)
 {
-	digitalWrite(_in1,0);
-	digitalWrite(_in2,1);
+	digitalWrite(_in1,1);
+	digitalWrite(_in2,0);
 	/*Rueda derecha hacia atras*/
-	digitalWrite(_in3,0);
-	digitalWrite(_in4,1);
+	digitalWrite(_in3,1);
+	digitalWrite(_in4,0);
 	/*velocidad de la rueda depende del valor*/
 	analogWrite(_en1,SPD(speed1));
 	analogWrite(_en2,SPD(speed2));
@@ -100,11 +101,11 @@ void RobotDriver::retroceder(int speed1, int speed2, float del)
 }
 void RobotDriver::retroceder(float del)
 {
-	digitalWrite(_in1,0);
-	digitalWrite(_in2,1);
+	digitalWrite(_in1,1);
+	digitalWrite(_in2,0);
 	/*Rueda derecha hacia atras*/
-	digitalWrite(_in3,0);
-	digitalWrite(_in4,1);
+	digitalWrite(_in3,1);
+	digitalWrite(_in4,0);
 	/*velocidad de la rueda depende del valor*/
 	digitalWrite(_en1,1);
 	digitalWrite(_en2,1);
