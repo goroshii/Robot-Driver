@@ -1,7 +1,7 @@
 #include <RobotDriver.h> 
 /*for Arduino UNO
-IN1 pin 13
-IN2 pin 12
+IN1 pin 6
+IN2 pin 5
 IN3 pin 7
 IN4 pin 8
 EN1 pin 11
