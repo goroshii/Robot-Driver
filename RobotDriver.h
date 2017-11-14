@@ -11,8 +11,8 @@
 
 #include "Arduino.h"
 #include <Servo.h>
-#define IN1 13
-#define IN2 12
+#define IN1 6
+#define IN2 5
 #define EN1 11
 #define IN3 7
 #define IN4 8
