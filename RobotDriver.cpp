@@ -1,6 +1,7 @@
 #include "Arduino.h"
 #include "RobotDriver.h"
 #include <Servo.h>
+
 /*mapeo de velocidad, rango 0-100 a 0-255 (para pines analogos)*/
 
 Servo head;
@@ -15,19 +16,40 @@ RobotDriver::RobotDriver()
 	_ser = SER;
 }
 
+void RobotDriver::init_ultrasonic(int ECHO, int TRIGG){
+	_echo = ECHO;
+	_trigg = TRIGG;
+	pinMode(_echo, OUTPUT);
+	pinMode(_trigg, INPUT); //Actually, this might be unnecessary if PulseIn does it too. Not sure.
+	digitalWrite(_trigg, LOW);
+}
+
+float RobotDriver::get_distance(){
+	//First hold the trigger pin up for 10uS
+	digitalWrite(TRIG_PIN, HIGH);
+	delayMicroseconds(10);
+	digitalWrite(TRIG_PIN, LOW);
+	//Then, we wait for the incoming pulse: _echo will go from LOW to HIGH and then LOW again
+	//Pulse duration will be in uS and proportional to the distance traveled
+	//The proportion is half the speed of sound in cm/uS. Returns the value in cm
+	return pulseIn(_echo, HIGH, MAX_DIST)*0.01715;
+}
+
 void RobotDriver::init(){
-	pinMode(_in1,OUTPUT);
-	pinMode(_in2,OUTPUT);
-	pinMode(_in3,OUTPUT);
-	pinMode(_in4,OUTPUT);
-	pinMode(_en1,OUTPUT);
-	pinMode(_en2,OUTPUT);
+	pinMode(_in1, OUTPUT);
+	pinMode(_in2, OUTPUT);
+	pinMode(_in3, OUTPUT);
+	pinMode(_in4, OUTPUT);
+	pinMode(_en1, OUTPUT);
+	pinMode(_en2, OUTPUT);
 	head.attach(_ser);
 }
+
 void RobotDriver::stop(){
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 }
+
 void RobotDriver::avanzar(int speed1,int speed2)
 {
 	/*Rueda izquierda hacia delante*/
@@ -40,6 +62,7 @@ void RobotDriver::avanzar(int speed1,int speed2)
 	analogWrite(_en1,speed1);
 	analogWrite(_en2,speed2);
 }
+
 void RobotDriver::avanzar(int speed1,int speed2,float del)
 {
 	/*Rueda izquierda hacia delante*/
@@ -55,8 +78,8 @@ void RobotDriver::avanzar(int speed1,int speed2,float del)
 	delay((int)(1000*del));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
-
 }
+
 void RobotDriver::avanzar(float del)
 {
 
@@ -71,8 +94,8 @@ void RobotDriver::avanzar(float del)
 	delay((int)(1000*del));
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
-
 }
+
 void RobotDriver::retroceder(int speed1,int speed2)
 {
 	digitalWrite(_in1,1);
@@ -84,6 +107,7 @@ void RobotDriver::retroceder(int speed1,int speed2)
 	analogWrite(_en1,SPD(speed1));
 	analogWrite(_en2,SPD(speed2));
 }
+
 void RobotDriver::retroceder(int speed1, int speed2, float del)
 {
 	digitalWrite(_in1,1);
@@ -99,6 +123,7 @@ void RobotDriver::retroceder(int speed1, int speed2, float del)
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 }
+
 void RobotDriver::retroceder(float del)
 {
 	digitalWrite(_in1,1);
@@ -113,6 +138,7 @@ void RobotDriver::retroceder(float del)
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);	
 }
+
 void RobotDriver::doblar_izq(float del)
 {
 	/*Rueda izquierda hacia atras*/
@@ -128,6 +154,7 @@ void RobotDriver::doblar_izq(float del)
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 }
+
 void RobotDriver::doblar_izq(float del,int speed)
 {
 /*Rueda izquierda hacia atras*/
@@ -143,6 +170,7 @@ void RobotDriver::doblar_izq(float del,int speed)
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 }
+
 void RobotDriver::doblar_der(float del){
 /*Rueda izquierda hacia delante*/
 	digitalWrite(_in1,1);
@@ -157,6 +185,7 @@ void RobotDriver::doblar_der(float del){
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 }
+
 void RobotDriver::doblar_der(float del, int speed){
 /*Rueda izquierda hacia delante*/
 	digitalWrite(_in1,1);
@@ -171,6 +200,7 @@ void RobotDriver::doblar_der(float del, int speed){
 	digitalWrite(_en1,0);
 	digitalWrite(_en2,0);
 }
+
 int RobotDriver::linea_negra()
 {
 	int lectura = analogRead(A0);
@@ -180,6 +210,7 @@ int RobotDriver::linea_negra()
 		return 0;
 	}
 }
+
 void RobotDriver::mover_cabeza(int angulo)
 {
 	head.write(angulo);

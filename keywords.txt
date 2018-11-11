@@ -20,6 +20,8 @@ doblar_izq	KEYWORD2
 doblar_der	KEYWORD2
 mover_cabeza	KEYWORD2
 linea_negra  KEYWORD2
+init_ultrasonic KEYWORD2
+get_distance KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

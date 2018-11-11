@@ -9,6 +9,9 @@
 #ifndef ROBOTDRIVER_h
 #define ROBOTDRIVER_h
 
+// Anything over 400 cm (23200 us pulse) is "out of range"
+#define MAX_DIST 23323
+
 #include "Arduino.h"
 #include <Servo.h>
 #define IN1 6
@@ -22,6 +25,8 @@
 class RobotDriver{
 	public:
 		RobotDriver();
+		void init_ultrasonic(int ECHO, int TRIGG);
+		float get_distance();
 		void init();
 		void stop();
 		void avanzar(float del);
@@ -44,6 +49,8 @@ class RobotDriver{
 		int _en1;
 		int _en2;
 		int _ser;
+		int _echo;
+		int _trigg;
 };
 
 #endif
