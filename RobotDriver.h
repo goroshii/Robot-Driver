@@ -14,6 +14,8 @@
 
 #include "Arduino.h"
 #include <Servo.h>
+#define ECHO 4
+#define TRIGG 3
 #define IN1 6
 #define IN2 5
 #define EN1 11
@@ -21,15 +23,15 @@
 #define IN4 8
 #define EN2 10
 #define SER 9
-#define TRIGG 4
-#define ECHO 3
 #define SPD(x)   map(x,0,100,0,255)
 class RobotDriver{
 	public:
 		RobotDriver();
+		void init_ultrasonic();
 		void init_ultrasonic(int echo, int trigg);
 		float get_distance();
 		void init();
+		void init(bool izq_inv,bool der_inv);
 		void stop();
 		void avanzar(float del);
 		void avanzar(int speed1,int speed2);
@@ -53,6 +55,7 @@ class RobotDriver{
 		int _ser;
 		int _echo;
 		int _trigg;
+		unsigned long _duration;
 };
 
 #endif
