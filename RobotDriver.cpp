@@ -13,12 +13,14 @@ RobotDriver::RobotDriver()
 	_in4 = IN4;
 	_en1 = EN1;
 	_en2 = EN2;
+	_echo = ECHO;
+	_trigg = TRIGG;
 	_ser = SER;
 }
 
-void RobotDriver::init_ultrasonic(int ECHO, int TRIGG){
-	_echo = ECHO;
-	_trigg = TRIGG;
+void RobotDriver::init_ultrasonic(int echo, int trigg){
+	_echo = echo;
+	_trigg = trigg;
 	pinMode(_echo, OUTPUT);
 	pinMode(_trigg, INPUT); //Actually, this might be unnecessary if PulseIn does it too. Not sure.
 	digitalWrite(_trigg, LOW);
