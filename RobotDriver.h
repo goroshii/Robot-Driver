@@ -21,11 +21,13 @@
 #define IN4 8
 #define EN2 10
 #define SER 9
+#define TRIGG 4
+#define ECHO 3
 #define SPD(x)   map(x,0,100,0,255)
 class RobotDriver{
 	public:
 		RobotDriver();
-		void init_ultrasonic(int ECHO, int TRIGG);
+		void init_ultrasonic(int echo, int trigg);
 		float get_distance();
 		void init();
 		void stop();
