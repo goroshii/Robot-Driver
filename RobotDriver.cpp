@@ -28,9 +28,9 @@ void RobotDriver::init_ultrasonic(int echo, int trigg){
 
 float RobotDriver::get_distance(){
 	//First hold the trigger pin up for 10uS
-	digitalWrite(TRIG_PIN, HIGH);
+	digitalWrite(_trigg, HIGH);
 	delayMicroseconds(10);
-	digitalWrite(TRIG_PIN, LOW);
+	digitalWrite(_trigg, LOW);
 	//Then, we wait for the incoming pulse: _echo will go from LOW to HIGH and then LOW again
 	//Pulse duration will be in uS and proportional to the distance traveled
 	//The proportion is half the speed of sound in cm/uS. Returns the value in cm
